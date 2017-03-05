@@ -1,0 +1,749 @@
+<?xml version="1.0" encoding="UTF-8"?><Db flnm="starteste" nm="especie7" ver="1.3.4">
+  <VerLbl/>
+  <VerNotes/>
+  <DefTblOpts/>
+  <DocFolder>C:\Especie\Workspace\Web\tavarnaro.com.br - recursos\banco</DocFolder>
+  <Sch Cm="standard public schema" nm="public">
+    <Tbl UsSo="1" nm="actions">
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="id_action" nm="pkactions"/>
+      <Cl au="1" df="nextval('actions_id_action_seq'::regclass)" nm="id_action" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="nome_action" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="60" sc="null" sg="1" un="0"/>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="agenda">
+      <Cm>Tabela agenda, refencia todas as ações, envios de mensagens, de um determinado usuario.
+Todos os usuários deverão estar cadastrados na agenda.</Cm>
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="id_agenda" nm="agenda_pkey"/>
+      <Cl au="1" df="nextval('agenda_id_agenda_seq'::regclass)" nm="id_agenda" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Campo identificador da agenda.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="id_usuario" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Campo referente ao usuário que tem um compromisso ou tarefa.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="descricao" nu="0">
+        <DT arr="0" ds="Text" en="" id="703" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Campo referente a mensagem.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="dth_agenda" nu="0">
+        <DT arr="0" ds="TimeStamp" en="" id="93" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Campo referente a data e hora do compromisso ou tarefa.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="url" nu="1">
+        <DT arr="0" ds="Char" en="" id="1" ln="300" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="0" nm="fk_agenda_usuario" prLkCl="id_usuario" upAc="0">
+        <PrTb mn="0" nm="usuario" oe="1" sch="public" zr="0"/>
+        <CdTb mn="1" nm="agenda" oe="0" sch="public" zr="1"/>
+        <ClPr cdCl="id_usuario" prCl="id_usuario"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="bairro">
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="id_bairro" nm="bairro_pkey"/>
+      <Cl au="1" df="nextval('bairro_id_bairro_seq'::regclass)" nm="id_bairro" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Identificador da tabela bairro</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="descricao" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <Cm>Campo referente ao nome do bairro</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="regiao" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="6" sc="null" sg="1" un="0"/>
+        <Cm>Campo referente aos pontos cardeias</Cm>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="banner">
+      <Cm>banner da home do site</Cm>
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="id_banner" nm="pkbanner"/>
+      <Cl au="1" df="nextval('banner_id_banner_seq'::regclass)" nm="id_banner" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="nome" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="30" sc="null" sg="1" un="0"/>
+        <Cm>nome do arquivo </Cm>
+      </Cl>
+      <Cl au="0" df="" nm="titulo" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="100" sc="null" sg="1" un="0"/>
+        <Cm>titulo na imagem</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="descricao" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="300" sc="null" sg="1" un="0"/>
+        <Cm>descrição que aparece embaixo da imgem</Cm>
+      </Cl>
+      <Cl au="0" df="now()" nm="data" nu="0">
+        <DT arr="0" ds="TimeStamp" en="" id="93" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="ci_sessions">
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Cl au="0" df="" nm="id" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="40" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="ip_address" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="45" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="0" nm="timestamp" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="data" nu="0">
+        <DT arr="0" ds="Text" en="" id="703" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Idx clu="0" nm="ci_sessions_timestamp" unq="0">
+        <ClNs>timestamp</ClNs>
+      </Idx>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="cidade">
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="id_cidade" nm="cidade_pkey"/>
+      <Cl au="1" df="nextval('cidade_id_cidade_seq'::regclass)" nm="id_cidade" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Identificador da tabela cidade</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="descricao" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <Cm>Campo referente ao nome da cidade</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="sigla_uf" nu="0">
+        <DT arr="0" ds="Char" en="" id="1" ln="2" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_cidade_uf" prLkCl="sigla" upAc="3">
+        <PrTb mn="0" nm="uf" oe="1" sch="public" zr="0"/>
+        <CdTb mn="1" nm="cidade" oe="1" sch="public" zr="0"/>
+        <ClPr cdCl="sigla_uf" prCl="sigla"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="emails">
+      <Cm>email enviados pelo site</Cm>
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="id_email" nm="pkemails"/>
+      <Cl au="0" df="nextval('email_id_email_seq'::regclass)" nm="id_email" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="nome" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="email" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="30" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="telefone" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="12" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="assunto" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="100" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="mensagem" nu="1">
+        <DT arr="0" ds="Text" en="" id="703" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="now()" nm="data" nu="0">
+        <DT arr="0" ds="TimeStamp" en="" id="93" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="endereco">
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="id_endereco, tipo" nm="endereco_idx"/>
+      <Cl au="0" df="" nm="id_endereco" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Campo identificador de endereço. Este campo é uma chave estrangeira de pessoa ou imóvel. O que diferencia se é um endereço de pessoa ou imóvel é o tipo do endereço., ou do plantão do site</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="tipo" nu="0">
+        <DT arr="0" ds="Char" en="" id="1" ln="1" sc="null" sg="1" un="0"/>
+        <Cm>Campo referente ao tipo de endereço. Se referencia pessoa ou imóvel. Valores possíveis: 'I' =&gt; Imóvel, 'P' =&gt; Pessoa, 'S' =&gt; Plantões site</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="logradouro" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <Cm>Campo referente ao logradouro do endereço da pessoa</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="complemento" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <Cm>Campo referente ao complemento do endereço da pessoa. Ex.: Casa, Ap, etc.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="numero" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="10" sc="null" sg="1" un="0"/>
+        <Cm>Campo referente ao número do endereço da pessoa.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="cep" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="8" sc="null" sg="1" un="0"/>
+        <Cm>Campo referente ao cep do endereço da pessoa</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="id_bairro" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="id_vila" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="id_cidade" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="1" nm="fk_endereco_bairro" prLkCl="id_bairro" upAc="0">
+        <PrTb mn="0" nm="bairro" oe="1" sch="public" zr="0"/>
+        <CdTb mn="1" nm="endereco" oe="1" sch="public" zr="0"/>
+        <ClPr cdCl="id_bairro" prCl="id_bairro"/>
+      </Fk>
+      <Fk deAc="1" nm="fk_endereco_cidade" prLkCl="id_cidade" upAc="0">
+        <PrTb mn="0" nm="cidade" oe="1" sch="public" zr="0"/>
+        <CdTb mn="1" nm="endereco" oe="1" sch="public" zr="0"/>
+        <ClPr cdCl="id_cidade" prCl="id_cidade"/>
+      </Fk>
+      <Fk deAc="1" nm="fk_endereco_vila" prLkCl="id_vila" upAc="0">
+        <PrTb mn="0" nm="vila" oe="1" sch="public" zr="1"/>
+        <CdTb mn="1" nm="endereco" oe="0" sch="public" zr="1"/>
+        <ClPr cdCl="id_vila" prCl="id_vila"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="foto">
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="id_foto" nm="pkfoto"/>
+      <Cl au="1" df="nextval('foto_id_foto_seq'::regclass)" nm="id_foto" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="nome" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="30" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="legenda" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="30" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="now()" nm="data" nu="0">
+        <DT arr="0" ds="TimeStamp" en="" id="93" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>upload da foto</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="sequencia" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>sera a sequencia q ira parecer na tela</Cm>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="log">
+      <Cm>registra todas as ações do sistema</Cm>
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Cl au="0" df="" nm="id_tipo" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="data" nu="0">
+        <DT arr="0" ds="TimeStamp" en="" id="93" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="descricao" nu="0">
+        <DT arr="0" ds="Text" en="" id="703" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="id_filial" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="log_action">
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="id_log" nm="pklog_action"/>
+      <Cl au="1" df="nextval('log_action_id_log_seq'::regclass)" nm="id_log" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="id_user_make_action" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Id do usuario que fez a ação</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="id_action" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="description_action" nu="0">
+        <DT arr="0" ds="Text" en="" id="703" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="now()" nm="data" nu="0">
+        <DT arr="0" ds="TimeStamp" en="" id="93" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="id_related" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Id do relacionado</Cm>
+      </Cl>
+      <Fk deAc="3" nm="fk_log_action_actions" prLkCl="id_action" upAc="3">
+        <PrTb mn="0" nm="actions" oe="1" sch="public" zr="0"/>
+        <CdTb mn="1" nm="log_action" oe="0" sch="public" zr="1"/>
+        <ClPr cdCl="id_action" prCl="id_action"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_log_action_usuario" prLkCl="id_usuario" upAc="3">
+        <PrTb mn="0" nm="usuario" oe="1" sch="public" zr="0"/>
+        <CdTb mn="1" nm="log_action" oe="0" sch="public" zr="1"/>
+        <ClPr cdCl="id_user_make_action" prCl="id_usuario"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="p_fisica">
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="id_pessoa" nm="p_fisica_pkey"/>
+      <Cl au="0" df="" nm="id_pessoa" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Campo identificador da pessoa física. É o mesmo identificador de pessoa. Caracterizando assim uma herança.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="cpf" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="14" sc="null" sg="1" un="0"/>
+        <Cm>Campo referente ao Cadastro de Pessoa Física (CPF) de uma pessoa física</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="rg" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="11" sc="null" sg="1" un="0"/>
+        <Cm>Campo referente ao registro geral (rg) de uma pessoa física</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="dt_nascimento" nu="1">
+        <DT arr="0" ds="Date" en="" id="91" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Campo referente a data de nascimento da pessoa</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="orgao_expedidor" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="40" sc="null" sg="1" un="0"/>
+        <Cm>Campo referente ao Órgão Expedidor do documento de identidade da pessoa física. Evita redundância de RG.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="estado_civil" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="3" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="profissao" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="30" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="emissao" nu="1">
+        <DT arr="0" ds="Date" en="" id="91" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_p_fisica_pessoa" prLkCl="id_pessoa" upAc="3">
+        <PrTb mn="0" nm="pessoa" oe="1" sch="public" zr="0"/>
+        <CdTb mn="0" nm="p_fisica" oe="1" sch="public" zr="1"/>
+        <ClPr cdCl="id_pessoa" prCl="id_pessoa"/>
+        <Cm>p_fisica é uma pessoa.</Cm>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="p_juridica">
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="id_pessoa" nm="p_juridica_pkey"/>
+      <Cl au="0" df="" nm="id_pessoa" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Campo identificador da pessoa jurídica. É o mesmo identificador de pessoa. Caracterizando assim uma herança.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="cnpj" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="18" sc="null" sg="1" un="0"/>
+        <Cm>Campo referente ao cnpj de uma pessoa jurídica (Empresa)</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="razao_social" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <Cm>Campo referente a razão social de uma pessoa jurídica (Empresa)</Cm>
+      </Cl>
+      <Fk deAc="3" nm="fk_p_juridica_pessoa" prLkCl="id_pessoa" upAc="3">
+        <PrTb mn="0" nm="pessoa" oe="1" sch="public" zr="0"/>
+        <CdTb mn="0" nm="p_juridica" oe="1" sch="public" zr="1"/>
+        <ClPr cdCl="id_pessoa" prCl="id_pessoa"/>
+        <Cm>p_juridica é uma pessoa.</Cm>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="permissoes">
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="id_permissao" nm="pk_permissoes"/>
+      <Cl au="0" df="" nm="id_permissao" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="tipo_permissao" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="descricao" nu="1">
+        <DT arr="0" ds="Text" en="" id="703" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <UniqueConstraints>
+        <UnCon nm="uc_id_permissao">
+          <ClNs>id_permissao</ClNs>
+        </UnCon>
+      </UniqueConstraints>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="pessoa">
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="id_pessoa" nm="pessoa_pkey"/>
+      <Cl au="1" df="nextval('pessoa_id_pessoa_seq'::regclass)" nm="id_pessoa" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Campo identificador de pessoa.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="nome" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <Cm>Campo referente ao nome completo da pessoa</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="email" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+        <Cm>Campo referente ao email da pessoa. Se possuir.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="nacionalidade" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="profissao" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="now()" nm="data_cadastro" nu="0">
+        <DT arr="0" ds="Date" en="" id="91" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>data em que foi feito o cadastro da pessoa</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="telefone" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="12" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="celular" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="12" sc="null" sg="1" un="0"/>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="representante">
+      <Cm>tabela que liga a pessoa fisica a pessoa juridica</Cm>
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="id_pessoa, id_p_juridica" nm="pkrepresentante"/>
+      <Cl au="0" df="" nm="id_pessoa" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="id_p_juridica" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_representante_p_juridica" prLkCl="id_pessoa" upAc="3">
+        <PrTb mn="0" nm="p_juridica" oe="1" sch="public" zr="0"/>
+        <CdTb mn="0" nm="representante" oe="1" sch="public" zr="0"/>
+        <ClPr cdCl="id_p_juridica" prCl="id_pessoa"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_representante_pessoa" prLkCl="id_pessoa" upAc="3">
+        <PrTb mn="0" nm="pessoa" oe="1" sch="public" zr="0"/>
+        <CdTb mn="0" nm="representante" oe="1" sch="public" zr="0"/>
+        <ClPr cdCl="id_pessoa" prCl="id_pessoa"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="uf">
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="sigla" nm="uf_pkey"/>
+      <Cl au="0" df="" nm="sigla" nu="0">
+        <DT arr="0" ds="Char" en="" id="1" ln="2" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="descricao" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="usuario">
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="id_usuario" nm="pk_usuario"/>
+      <Cl au="0" df="" nm="id_usuario" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Campo identificador de usuário do sistema. Está referenciando o id_pessoa. Caracterizando uma herança.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="usuario" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="120" sc="null" sg="1" un="0"/>
+        <Cm>Campo referente ao nome de usuário que será utilizado para acessar o sistema.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="senha" nu="0">
+        <DT arr="0" ds="Char" en="" id="1" ln="32" sc="null" sg="1" un="0"/>
+        <Cm>Campo referente a senha usada pelo usuário para obter acesso ao sistema.</Cm>
+      </Cl>
+      <Cl au="0" df="" nm="id_permissao" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+        <Cm>Tipo de usuário {1 = administrador}</Cm>
+      </Cl>
+      <Cl au="0" df="true" nm="status" nu="0">
+        <DT arr="0" ds="Boolean" en="" id="16" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_usuario_permissoes" prLkCl="id_permissao" upAc="3">
+        <PrTb mn="0" nm="permissoes" oe="1" sch="public" zr="0"/>
+        <CdTb mn="0" nm="usuario" oe="1" sch="public" zr="0"/>
+        <ClPr cdCl="id_permissao" prCl="id_permissao"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_usuario_pessoa" prLkCl="id_pessoa" upAc="3">
+        <PrTb mn="0" nm="pessoa" oe="1" sch="public" zr="0"/>
+        <CdTb mn="0" nm="usuario" oe="1" sch="public" zr="1"/>
+        <ClPr cdCl="id_usuario" prCl="id_pessoa"/>
+      </Fk>
+      <UniqueConstraints>
+        <UnCon nm="uc_usuario">
+          <ClNs>usuario</ClNs>
+        </UnCon>
+      </UniqueConstraints>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="vila">
+      <TblOpts>WITHOUT OIDS</TblOpts>
+      <Pk ClNs="id_vila" nm="vila_pkey"/>
+      <Cl au="1" df="nextval('vila_id_vila_seq'::regclass)" nm="id_vila" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="descricao" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="60" sc="null" sg="1" un="0"/>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Proc nm="sem_acentos(character varying)">
+      <src>CREATE OR REPLACE FUNCTION sem_acentos(character varying) 
+  RETURNS character varying AS 
+$$
+SELECT TRANSLATE($1, 'áéíóúàèìòùãõâêîôôäëïöüçÁÉÍÓÚÀÈÌÒÙÃÕÂÊÎÔÛÄËÏÖÜÇ', 'aeiouaeiouaoaeiooaeioucAEIOUAEIOUAOAEIOOAEIOUC')
+$$
+  LANGUAGE sql VOLATILE 
+  COST 100;</src>
+    </Proc>
+    <View nm="logar">
+      <Sql>SELECT
+    u.id_usuario,
+    u.usuario,
+    u.senha,
+    u.status,
+    p.nome,
+    p.email,
+    per.tipo_permissao,
+    per.descricao
+FROM usuario u LEFT
+    JOIN permissoes per ON u.id_permissao = per.id_permissao
+    JOIN pessoa p ON p.id_pessoa = u.id_usuario
+WHERE u.status = true</Sql>
+    </View>
+    <Seq incr="1" nm="actions_id_action_seq"/>
+    <Seq incr="1" nm="agenda_id_agenda_seq"/>
+    <Seq incr="1" nm="bairro_id_bairro_seq"/>
+    <Seq incr="1" nm="banner_id_banner_seq"/>
+    <Seq incr="1" nm="cidade_id_cidade_seq"/>
+    <Seq incr="1" nm="email_id_email_seq"/>
+    <Seq incr="1" nm="foto_id_foto_seq"/>
+    <Seq incr="1" nm="log_action_id_log_seq"/>
+    <Seq incr="1" nm="permissao_id_permissao_seq"/>
+    <Seq incr="1" nm="pessoa_id_pessoa_seq"/>
+    <Seq incr="1" nm="vila_id_vila_seq"/>
+    <CustomTypes/>
+  </Sch>
+  <Dgm nm="Geral">
+    <RnCf ClkAct="true" FtSz="9" lkStgy="OffsetDirect" zm="1.0">
+      <VbCfg>
+        <Fg ky="Auto Number" vl="0"/>
+        <Fg ky="Check" vl="0"/>
+        <Fg ky="Comment" vl="0"/>
+        <Fg ky="Data Type" vl="1"/>
+        <Fg ky="Default" vl="0"/>
+        <Fg ky="ENUM Values" vl="0"/>
+        <Fg ky="Length" vl="1"/>
+        <Fg ky="Name" vl="1"/>
+        <Fg ky="Nullable" vl="0"/>
+        <Fg ky="Schema Name" vl="0"/>
+        <Fg ky="Signed" vl="0"/>
+      </VbCfg>
+    </RnCf>
+    <DiaProps>
+      <Show AllCols="1" FkCols="1" FkNms="0" PkCols="1"/>
+      <ErNotation>DbwErNotation</ErNotation>
+      <svg path=""/>
+    </DiaProps>
+    <TbGl bkCl="ffccccff" sch="public" tbl="actions" x="313" y="344"/>
+    <TbGl bkCl="ffccccff" sch="public" tbl="log_action" x="35" y="310"/>
+    <TbGl bkCl="ffccccff" sch="public" tbl="usuario" x="49" y="211"/>
+    <TbGl bkCl="ffccccff" sch="public" tbl="agenda" x="43" y="107"/>
+    <TbGl bkCl="ffccccff" sch="public" tbl="p_fisica" x="516" y="30"/>
+    <TbGl bkCl="ffccccff" sch="public" tbl="p_juridica" x="557" y="311"/>
+    <TbGl bkCl="ffccccff" sch="public" tbl="pessoa" x="379" y="159"/>
+    <TbGl bkCl="ffccccff" sch="public" tbl="permissoes" x="251" y="88"/>
+    <TbGl bkCl="ffccccff" sch="public" tbl="representante" x="633" y="228"/>
+    <TbGl bkCl="ffccccff" sch="public" tbl="bairro" x="877" y="49"/>
+    <TbGl bkCl="ffccccff" sch="public" tbl="endereco" x="1106" y="40"/>
+    <TbGl bkCl="ffccccff" sch="public" tbl="uf" x="880" y="209"/>
+    <TbGl bkCl="ffccccff" sch="public" tbl="cidade" x="1113" y="198"/>
+    <TbGl bkCl="ffccccff" sch="public" tbl="vila" x="879" y="127"/>
+    <TbGl bkCl="ffccccff" sch="public" tbl="banner" x="26" y="445"/>
+    <TbGl bkCl="ffccccff" sch="public" tbl="ci_sessions" x="38" y="32"/>
+    <TbGl bkCl="ffccccff" sch="public" tbl="foto" x="246" y="448"/>
+    <TbGl bkCl="ffccccff" sch="public" tbl="emails" x="481" y="449"/>
+    <FkGl bkCl="ff000000" nm="public.agenda.fk_agenda_usuario"/>
+    <FkGl bkCl="ff000000" nm="public.cidade.fk_cidade_uf"/>
+    <FkGl bkCl="ff000000" nm="public.endereco.fk_endereco_bairro"/>
+    <FkGl bkCl="ff000000" nm="public.endereco.fk_endereco_cidade"/>
+    <FkGl bkCl="ff000000" nm="public.endereco.fk_endereco_vila"/>
+    <FkGl bkCl="ff000000" nm="public.log_action.fk_log_action_actions"/>
+    <FkGl bkCl="ff000000" nm="public.log_action.fk_log_action_usuario"/>
+    <FkGl bkCl="ff000000" nm="public.p_fisica.fk_p_fisica_pessoa"/>
+    <FkGl bkCl="ff000000" nm="public.p_juridica.fk_p_juridica_pessoa"/>
+    <FkGl bkCl="ff000000" nm="public.representante.fk_representante_p_juridica"/>
+    <FkGl bkCl="ff000000" nm="public.representante.fk_representante_pessoa"/>
+    <FkGl bkCl="ff000000" nm="public.usuario.fk_usuario_permissoes"/>
+    <FkGl bkCl="ff000000" nm="public.usuario.fk_usuario_pessoa"/>
+    <Notes/>
+    <Zones>
+      <Zone bkCl="ff99ffff" h="481" nm="Endereço" w="282" x="852" y="8"/>
+      <Zone bkCl="ffece9d8" h="822" nm="Pessoa" w="399" x="17" y="6"/>
+      <Zone bkCl="ff99ffff" h="700" nm="site" w="152" x="17" y="416"/>
+    </Zones>
+  </Dgm>
+  <RnmMgr NxRnmId="50">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="proprietario" SupCls="Schema" SupNme="public">
+      <Rnm id="2" nNm="id_proprietario" oNm="id_pessoa"/>
+      <Rnm id="1" nNm="id_pessoa" oNm="id_proprietario"/>
+    </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="public" SupCls="" SupNme="">
+      <Rnm id="11" nNm="documento_tipo" oNm="tipo_documento"/>
+      <Rnm id="6" nNm="tipo_documento" oNm="categoria_documento"/>
+      <Rnm id="4" nNm="categoria_documento" oNm="categoria"/>
+      <Rnm id="3" nNm="categoria" oNm="categoria_documento"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="documento_tipo" SupCls="Schema" SupNme="public">
+      <Rnm id="7" nNm="id_tipo_documento" oNm="id_categoria_documento"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="documento" SupCls="Schema" SupNme="public">
+      <Rnm id="9" nNm="id_tipo_documento" oNm="id_tipo"/>
+      <Rnm id="8" nNm="id_tipo" oNm="id_categoria"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="documento_tipo" SupCls="Schema" SupNme="public">
+      <Rnm id="10" nNm="nome" oNm="descricao"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="imovel" SupCls="Schema" SupNme="public">
+      <Rnm id="12" nNm="latitude" oNm="mapa"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="imovel" SupCls="Schema" SupNme="public">
+      <Rnm id="13" nNm="id_tipo" oNm="tipo"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="permicoes" SupCls="Schema" SupNme="public">
+      <Rnm id="14" nNm="nome_permissao" oNm="nome_permicao"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="usuario" SupCls="Schema" SupNme="public">
+      <Rnm id="17" nNm="id_permissao" oNm="tipo"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="avaliacao_individual" SupCls="Schema" SupNme="public">
+      <Rnm id="18" nNm="dt_avaliacao" oNm="dt_avaliação"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="situacao" SupCls="Schema" SupNme="public">
+      <Rnm id="19" nNm="situacao_alias" oNm="alias"/>
+    </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="public" SupCls="" SupNme="">
+      <Rnm id="20" nNm="visita" oNm="historico_busca"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="visita" SupCls="Schema" SupNme="public">
+      <Rnm id="21" nNm="id_visita" oNm="id_busca"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="visita" SupCls="Schema" SupNme="public">
+      <Rnm id="22" nNm="data" oNm="data_visita"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="log" SupCls="Schema" SupNme="public">
+      <Rnm id="23" nNm="id_tipo" oNm="tipo"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="parceria" SupCls="Schema" SupNme="public">
+      <Rnm id="24" nNm="id_corretor" oNm="id_corretor1"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="parceria" SupCls="Schema" SupNme="public">
+      <Rnm id="25" nNm="id_corretor_parceiro" oNm="id_corretor2"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="zoneamento" SupCls="Schema" SupNme="public">
+      <Rnm id="26" nNm="coeficiente_aproveitamento" oNm="coeficiente_de_aproveitamento"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="plantao" SupCls="Schema" SupNme="public">
+      <Rnm id="27" nNm="foto" oNm="imagem"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="horario" SupCls="Schema" SupNme="public">
+      <Rnm id="28" nNm="entrada" oNm="manha"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="horario" SupCls="Schema" SupNme="public">
+      <Rnm id="29" nNm="id_plantao" oNm="id_hora"/>
+    </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="public" SupCls="" SupNme="">
+      <Rnm id="30" nNm="plantao" oNm="Plantao"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="messaging" SupCls="Schema" SupNme="public">
+      <Rnm id="31" nNm="user" oNm="usuario"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="messaging" SupCls="Schema" SupNme="public">
+      <Rnm id="32" nNm="to_user" oNm="to_usuario"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="messaging" SupCls="Schema" SupNme="public">
+      <Rnm id="33" nNm="id_user" oNm="id_usuario"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="messaging" SupCls="Schema" SupNme="public">
+      <Rnm id="34" nNm="id_user" oNm="id_usuario"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="messaging" SupCls="Schema" SupNme="public">
+      <Rnm id="35" nNm="to_user" oNm="to_usuario"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="messaging_admin" SupCls="Schema" SupNme="public">
+      <Rnm id="36" nNm="id_group" oNm="group"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="situacao_filial" SupCls="Schema" SupNme="public">
+      <Rnm id="37" nNm="id_plano" oNm="if_plano"/>
+    </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="public" SupCls="" SupNme="">
+      <Rnm id="40" nNm="situacao_filial" oNm="contrato"/>
+      <Rnm id="38" nNm="contrato" oNm="plano_filial"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="situacao_filial" SupCls="Schema" SupNme="public">
+      <Rnm id="41" nNm="id_situacao" oNm="id_contrato"/>
+      <Rnm id="39" nNm="id_contrato" oNm="id_plano_filial"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="situacao_filial" SupCls="Schema" SupNme="public">
+      <Rnm id="42" nNm="data_situacao" oNm="data_contrato"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="situacao_filial" SupCls="Schema" SupNme="public">
+      <Rnm id="43" nNm="nr_imoveis" oNm="limite_corretor"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="log_action" SupCls="Schema" SupNme="public">
+      <Rnm id="44" nNm="id_related" oNm="id_imovel_related"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="telefone" SupCls="Schema" SupNme="public">
+      <Rnm id="45" nNm="id_filighug" oNm="id_filial"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="usuario" SupCls="Schema" SupNme="public">
+      <Rnm id="47" nNm="usuario" oNm="email"/>
+      <Rnm id="46" nNm="email" oNm="usuario"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="pessoa" SupCls="Schema" SupNme="public">
+      <Rnm id="48" nNm="telefone" oNm="telefone1"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="foto" SupCls="Schema" SupNme="public">
+      <Rnm id="49" nNm="data" oNm="date"/>
+    </RnmCh>
+  </RnmMgr>
+  <DbDocOptionMgr>
+    <BasicOptionMgr>
+      <Name>db.doc.option.mgr</Name>
+      <BoolOpt lbl="Diagrams" nm="doc.diagrams" on="1" spl="0"/>
+      <BoolOpt lbl="Foreign Keys" nm="doc.fks" on="1" spl="0"/>
+      <BoolOpt lbl="Indexes" nm="doc.indexes" on="1" spl="0"/>
+      <BoolOpt lbl="Overwrite CSS File" nm="doc.overwrite.css" on="1" spl="0"/>
+      <BoolOpt lbl="Procedures" nm="doc.procs" on="1" spl="0"/>
+      <BoolOpt lbl="Schemas" nm="doc.schemas" on="1" spl="0"/>
+      <BoolOpt lbl="Sequences" nm="doc.sequences" on="1" spl="0"/>
+      <BoolOpt lbl="Tables" nm="doc.tables" on="1" spl="0"/>
+      <BoolOpt lbl="Triggers" nm="doc.triggers" on="1" spl="0"/>
+      <BoolOpt lbl="Views" nm="doc.views" on="1" spl="0"/>
+    </BasicOptionMgr>
+  </DbDocOptionMgr>
+  <OpenEditors>
+    <OpenEditor ClsNm="Diagram" fqn="null.Geral" selected="1"/>
+  </OpenEditors>
+  <TreePaths>
+    <TreePath/>
+    <TreePath>/Schemas (1)</TreePath>
+    <TreePath>/Schemas (1)/public</TreePath>
+    <TreePath>/Schemas (1)/public/Tables (19)</TreePath>
+    <TreePath>/Schemas (1)/public/Tables (19)/usuario</TreePath>
+    <TreePath>/Schemas (1)/public/Tables (19)/usuario/Unique Constraints (1)</TreePath>
+    <TreePath>/Schemas (1)/public/Views (1)</TreePath>
+    <TreePath>/Schemas (1)/public/Procedures (1)</TreePath>
+    <TreePath>/Schemas (1)/public/Sequences (11)</TreePath>
+    <TreePath>/Diagrams (1)</TreePath>
+  </TreePaths>
+</Db>

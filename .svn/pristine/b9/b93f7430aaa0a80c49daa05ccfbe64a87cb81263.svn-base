@@ -1,0 +1,246 @@
+@CHARSET "ISO-8859-1";
+
+/* =Fontes
+ -------------------------------------------------------------- */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin);
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
+
+/*------------------- default   -------------------*/
+body {
+	color: #666 !important;
+	font-family: "Open Sans", Arial, sans-serif !important;
+}
+a {
+    text-decoration: none !important;
+}
+a, a:focus, a:hover, a:active, button, button:hover {
+    outline: 0 none !important;
+}
+a:hover, button:hover, .active {
+    outline: 0 none !important;
+    color: #252525 !important;
+}
+.geral {
+	min-height: 100%;
+	position: relative;
+}
+/*------------------- topbar   -------------------*/
+.header a{
+    color: #666 !important;	
+}
+.topbar {
+    float: right;
+    font-size: 14px;
+    font-weight: bold;
+    position: relative;
+    z-index: 4;
+    width: 200px;
+    text-align: right;
+}
+.topbar ul > li span{
+    font-size: 12px;
+}
+.topbar .logo{ 
+	display: table-cell;
+    float: right;
+    height: 100%;
+    vertical-align: middle;
+}
+.topbar ul{
+    margin: 0;
+}
+.topbar ul > li{
+    display: inline;
+    list-style: outside none none;
+    position: relative;
+}
+.topbar ul > li a img{
+    padding-left: 10px;
+}
+.topbar ul > li img{
+	max-height: 20px;
+}
+@media screen and (min-width: 480px) {
+	.topbar {
+		font-size: 16px;
+		width: 340px;
+	}
+	.topbar ul > li img{
+		max-height: 25px;
+	}
+}
+
+/*------------------- header   -------------------*/
+.header {
+	margin-top: 5px;
+}
+.header_logo img { 
+	height: 100px;
+}
+@media screen and (min-width: 760px) {
+	.navbar-header {
+	    max-height: 110px;
+	}
+}
+/*------------------- menu   -------------------*/
+.menu {
+    margin-top: 10px;
+}
+.menu a {  
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    height: auto;
+    text-align: center;
+    transition: all 0.2s ease-in-out 0s;
+    width: 100%;
+}
+.navbar {
+    margin-bottom: 5px !important;
+}
+/*------------------- avisos -------------------*/
+.avisos {
+	margin-bottom: 5px;
+}
+.avisos p{
+	margin: 0 !important;
+}
+/*------------------- corpo -------------------*/
+.corpo {
+	position: relative;
+	height: auto;
+	min-height: 700px;
+	width: 100%;
+	z-index: 3;
+	padding-bottom: 40px;
+}
+.corpo-container{
+ 	background-color: #effbf8;
+    border: 1px solid #4d4c4c;
+    border-radius: 6px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    margin-bottom: 5px;
+}
+/*------------------- footer -------------------*/
+.footer {
+	height: auto;
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	z-index: 4;
+	color: #4d4c4c;
+	font-size: 12px;
+}
+.inner-footer {
+	background-color: #D3E7D9;
+	height: auto;
+}
+.icon-footer a:hover, .icon-footer a:focus{ 
+	text-decoration: none;
+}
+.icon-footer ul{
+    margin-top: 10px;
+}
+.icon-footer ul > li{
+    display: inline;
+    list-style: outside none none;
+}
+.icon-footer ul > li img{
+	max-height: 20px;
+}
+.inner-footer2 {
+	background-color: #C1DDCA;
+	height: auto;
+	text-align: center;
+}
+.inner-footer2 p {
+    margin: 10px;
+}
+.menu-footer ul{ 
+	padding-top: 10px;
+}
+.menu-footer li:not(:last-child){
+	border-right:1px solid #4d4c4c;
+	padding-right: 7px;
+}
+.menu-footer a{
+	color: #4d4c4c !important;
+	font-weight: bold;
+}
+.menu-footer a:hover, 
+.menu-footer a:focus, 
+.menu-footer .selecionado_footer {
+    text-decoration: underline;
+}
+@media screen and (min-width: 420px) { 
+	.footer { 
+		font-size: 14px;
+	}
+	.menu-footer li:not(:last-child){
+		padding-right: 10px;
+	}
+}
+/*------------------- formularios -------------------*/
+.form-upload {
+	color: #5e5e5e;
+	z-index: 50;
+}
+.form-upload h2 {
+	border-bottom: 1px solid;
+	font-style: italic;
+	margin-bottom: 15px;
+	font-size: 18px;
+}
+.form-upload label {
+	padding-left: 2px;
+	padding-right: 2px;
+}
+.thumbnail-img {
+    background-color: #666;
+    display: block;
+    height: 100%;
+    min-height: 130px;
+    padding: 5px;
+    width: 100%;
+}
+.thumbnail-img img {
+    bottom: 0;
+    height: 120px !important;
+    left: 0;
+    margin: 10px auto !important;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.legenda_foto{
+	border-bottom: 1px solid #666;
+}
+@media screen and (min-width: 720px) { 
+	.thumbnail-img {
+	    min-height: 81px;
+    }
+	.thumbnail-img img {
+	    height: 75px !important;
+	     margin: 8px auto !important;
+	}
+	
+}
+/*------------------- padroes -------------------*/
+.modal {
+	z-index: 10;
+}
+.modal-backdrop {
+	 opacity:0.8;
+   	 z-index: 4 !important;
+}
+.quebra-mobile {
+	display: block;
+}
+@media screen and (min-width: 720px) { 
+	.quebra-mobile {
+		display: none;
+	}
+	
+}
